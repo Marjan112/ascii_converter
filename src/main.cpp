@@ -13,6 +13,7 @@ int print_menu() {
 std::string ascii_to_string(const std::string& input) {
     std::istringstream iss(input);
     
+    // IF IT WORKS, DONT TOUCH IT!
     std::string retval;
     int ascii;
     while(iss >> ascii) {
