@@ -52,7 +52,7 @@ int main() {
             break;
         }
         default: {
-            std::cout << "No such option as \"" << option << "\".";
+            std::cout << "No such option as \"" << option << "\".\n";
             break;
         }
     }
