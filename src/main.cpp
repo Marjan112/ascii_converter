@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 
-int print_menu() {
+int get_option() {
     int option;
     std::cout << "1. ascii to string\n";
     std::cout << "2. string to ascii\n";
@@ -13,7 +13,6 @@ int print_menu() {
 std::string ascii_to_string(const std::string& input) {
     std::istringstream iss(input);
     
-    // IF IT WORKS, DONT TOUCH IT!
     std::string retval;
     int ascii;
     while(iss >> ascii) {
@@ -33,28 +32,30 @@ std::string string_to_ascii(const std::string& input) {
     return retval.str();
 }
 
-int main() {
-    int option = print_menu();
-
+int handle_option(int option) {
     switch(option) {
         case 1: {
             std::cout << "input: ";
             std::string input;
             std::getline(std::cin >> std::ws, input);
             std::cout << "output: " << ascii_to_string(input) << "\n";
-            break;
+            return 0;
         }
         case 2: {
             std::cout << "input: ";
             std::string input;
             std::getline(std::cin >> std::ws, input);
             std::cout << "output: " << string_to_ascii(input) << "\n";
-            break;
+            return 0;
         }
         default: {
             std::cout << "No such option as \"" << option << "\".\n";
-            break;
+            return 1;
         }
     }
-    return 0;
+}
+
+int main() {
+    int option = get_option();
+    return handle_option(option);
 }
